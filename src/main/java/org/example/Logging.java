@@ -8,9 +8,6 @@ public class Logging {
     private List<String> login;
     private List<String> password;
     private int index;
-    private String tmpLogin;
-    private String tpmPassword;
-
     public Logging() {
         login = new ArrayList<>();
         password = new ArrayList<>();
@@ -27,7 +24,7 @@ public class Logging {
          */
         while (check) {
             System.out.println("Ведіть ім'я нового користувача: ");
-            tmpLogin = scn.nextLine();
+            String tmpLogin = scn.nextLine();
             if (tmpLogin.length() > 2) {
                 if (login.size() == 0) {
                     login.add(tmpLogin);
@@ -50,11 +47,11 @@ public class Logging {
         /*
         Створення пароля.
         Обмеження:
-        1) Мінімум 6 символів
+        1) Мінімум 4 символа
          */
         while (check) {
             System.out.println("Ведіть пароль для нового користувача: ");
-            tpmPassword = scn.nextLine();
+            String tpmPassword = scn.nextLine();
             if (tpmPassword.length() > 3) {
                 password.add(tpmPassword);
                 System.out.println("Нового користувача створено");
@@ -68,7 +65,7 @@ public class Logging {
     public void remove() {
         Scanner scn = new Scanner(System.in);
         System.out.println("Ведіть ім'я користувача, якого хочете видалити?");
-        tmpLogin = scn.nextLine();
+        String tmpLogin = scn.nextLine();
         boolean tmp = login.contains(tmpLogin);
         if (login.contains(tmpLogin)) {
             index = login.indexOf(tmpLogin);
@@ -83,7 +80,7 @@ public class Logging {
     public void contains() {
         Scanner scn = new Scanner(System.in);
         System.out.println("Ведіть ім'я користувача");
-        tmpLogin = scn.nextLine();
+        String tmpLogin = scn.nextLine();
         if (login.contains(tmpLogin)) {
             System.out.println("Такий користувач існує в базі");
         } else {
@@ -94,7 +91,7 @@ public class Logging {
     public void changeLogin() {
         Scanner scn = new Scanner(System.in);
         System.out.println("Ведіть ім'я користувача, якого хочете змінити");
-        tmpLogin = scn.nextLine();
+        String tmpLogin = scn.nextLine();
         if (login.contains(tmpLogin)) {
             index = login.indexOf(tmpLogin);
             System.out.println("Ведіть нове ім'я для користувача");
@@ -109,11 +106,11 @@ public class Logging {
     public void changePassword() {
         Scanner scn = new Scanner(System.in);
         System.out.println("Ведіть ім'я користувача, пароль якого хочете змінити");
-        tmpLogin = scn.nextLine();
+        String tmpLogin = scn.nextLine();
         if (login.contains(tmpLogin)) {
             index = login.indexOf(tmpLogin);
             System.out.println("Ведіть новий пароль");
-            tpmPassword = scn.nextLine();
+            String tpmPassword = scn.nextLine();
             password.set(index, tpmPassword);
             System.out.println("Пароль змінено");
         } else {
